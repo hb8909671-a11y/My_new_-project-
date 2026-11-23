@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayEasy Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header>
+        <h1>🏨 StayEasy Admin Panel</h1>
+        <p>Hotel Booking Management</p>
+    </header>
+
+    <section id="loginSection" class="panel">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+            <input type="email" id="adminEmail" placeholder="Admin email" required>
+            <input type="password" id="adminPassword" placeholder="Password" required>
+            <button type="submit" id="loginBtn">Login</button>
+        </form>
+        <p id="loginMessage" role="status"></p>
+    </section>
+
+    <main id="dashboard" hidden>
+        <div class="dashboard-heading">
+            <h2>Booking Overview</h2>
+            <button id="logoutBtn" class="logout">Logout</button>
+        </div>
+
+        <section class="summary">
+            <article class="box">
+                <h3>Total Bookings</h3>
+                <p id="totalBookings">0</p>
+            </article>
+            <article class="box">
+                <h3>Active Bookings</h3>
+                <p id="activeBookings">0</p>
+            </article>
+            <article class="box">
+                <h3>Active Booking Value</h3>
+                <p id="totalRevenue">₹0</p>
+            </article>
+        </section>
+
+        <h2>Customer Booking Records</h2>
+        <p id="adminMessage" role="status"></p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th><th>Email</th><th>Mobile</th>
+                        <th>Room</th><th>Check-in</th><th>Nights</th>
+                        <th>Amount</th><th>Status</th><th>Booked At</th>
+                    </tr>
+                </thead>
+                <tbody id="bookingTable"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

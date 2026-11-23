@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayEasy - Hotel Booking App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🏨 StayEasy</h1>
+        <p>Simple Hotel Booking App</p>
+    </header>
+
+    <section class="search-box">
+        <input type="text" id="searchHotel" placeholder="Search hotel...">
+        <select id="roomType">
+            <option value="all">All Rooms</option>
+            <option value="Single">Single Room</option>
+            <option value="Double">Double Room</option>
+            <option value="Deluxe">Deluxe Room</option>
+        </select>
+        <button onclick="searchRooms()">Search</button>
+    </section>
+
+    <main>
+        <h2>Available Rooms</h2>
+        <div id="rooms" class="room-container">
+            <div class="room" data-type="Single">
+                <div class="room-image">🛏️</div>
+                <h3>Single Room</h3>
+                <p>Comfortable room for one person.</p>
+                <h4>₹1500 / night</h4>
+                <button onclick="openBooking('Single Room', 1500)">Book Now</button>
+            </div>
+            <div class="room" data-type="Double">
+                <div class="room-image">🛏️🛏️</div>
+                <h3>Double Room</h3>
+                <p>Perfect room for two people.</p>
+                <h4>₹2500 / night</h4>
+                <button onclick="openBooking('Double Room', 2500)">Book Now</button>
+            </div>
+            <div class="room" data-type="Deluxe">
+                <div class="room-image">🏨✨</div>
+                <h3>Deluxe Room</h3>
+                <p>Luxury room with premium facilities.</p>
+                <h4>₹4000 / night</h4>
+                <button onclick="openBooking('Deluxe Room', 4000)">Book Now</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="bookingBox" class="booking-box">
+        <div class="booking-form">
+            <span class="close" onclick="closeBooking()" aria-label="Close">&times;</span>
+            <h2>Book Your Room</h2>
+            <p id="selectedRoom"></p>
+            <form id="bookingForm">
+                <input type="text" id="name" placeholder="Enter your name" maxlength="80" required>
+                <input type="email" id="email" placeholder="Enter your email" maxlength="120" required>
+                <input type="tel" id="phone" placeholder="Enter 10-digit mobile number"
+                       inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required>
+                <input type="date" id="checkin" required>
+                <input type="number" id="nights" placeholder="Number of nights"
+                       min="1" max="30" value="1" required>
+                <h3 id="totalPrice">Total: ₹0</h3>
+                <p id="bookingMessage" role="status"></p>
+                <button type="submit" id="confirmBtn">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="booking-details">
+        <h2>📋 My Booking</h2>
+        <div id="bookingResult"><p>No booking yet.</p></div>
+    </section>
+
+    <footer><p>© 2026 StayEasy Hotel Booking App</p></footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
